@@ -7,38 +7,25 @@ import (
 	"os"
 	"strconv"
 	// "strings"
-	// "strconv"
 )
 
 func main() {
 	strArr := ReadFile()
 	// fmt.Println(strArr)
+	var convertToSliceOfInt []int // We declare variable outside of for loop (outside the scope of for loop); now the slice of int can be accessible within the main function and not just limited to the for loop
+	count := 0
 	for _, v := range strArr { // Ranging over string slice to obtain string value (v)
 		convertToInt, _ := strconv.Atoi(v) // Converting string to integer
 		// fmt.Println(convertToInt)
-		var convertToSliceOfInt []int = []int{convertToInt}
-		fmt.Println(convertToSliceOfInt)
 		convertToSliceOfInt = append(convertToSliceOfInt, convertToInt)
-		fmt.Println(convertToInt)
-		// 	count := 0
-		// 	for i := 0; i < len(convertToSliceOfInt); i++ {
-		// 		if convertToSliceOfInt[i+1] > convertToSliceOfInt[i] {
-		// 			count++
-		// 	}
-		// 	fmt.Print(count)
-		// }
-		// if convertToSliceOfInt[1] > convertToSliceOfInt[0] {
-		// 	count++
-		// }
 	}
-
-	//    convertToString := strings.Join(strArr, " ") // Converting string slice to string
-	//    fmt.Println(convertToString)
-	//    nums := []int{convertToInt}
-	//    fmt.Println(nums)
-	//    for i := 0; i == convertToInt; i++ {
-	// 	fmt.Println(strArr[i], strArr[i+1])
-	//    }
+	fmt.Println(convertToSliceOfInt) // fmt declared outside of for loop; all iterations inside for loop take place then we print result
+	for i := range convertToSliceOfInt {
+		if i != len(convertToSliceOfInt)-1 && convertToSliceOfInt[i+1] > convertToSliceOfInt[i] { // i != len(convertToSliceOfInt)-1 needs to be specified so that we don't iterate over the last index as convertToSliceOfInt[i+1] would lead to out of range index
+			count++
+			fmt.Println(count)
+		}
+	}
 }
 
 func ReadFile() []string {
@@ -55,20 +42,6 @@ func ReadFile() []string {
 	}
 	return sonarInput
 }
-
-/*
-func count() {
-    var strArr []string
-    var line string
-    count := 0
-    for i := 0; i < len(strArr); i++ {
-        if strArr[i+1] > strArr[i] {
-            count++
-    }
-    fmt.Print(line)
-}
-}
-*/
 
 /*
    convertToString := strings.Join(strArr, " ") // Converting string slice to string
