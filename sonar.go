@@ -19,7 +19,7 @@ func main() {
 		// fmt.Println(convertToInt)
 		convertToSliceOfInt = append(convertToSliceOfInt, convertToInt)
 	}
-	fmt.Println(convertToSliceOfInt) // fmt declared outside of for loop; all iterations inside for loop take place then we print result
+	fmt.Println(convertToSliceOfInt) // fmt.Println(convertToSliceOfInt) declared outside of for loop; all iterations inside for loop take place then we print result
 	for i := range convertToSliceOfInt {
 		if i != len(convertToSliceOfInt)-1 && convertToSliceOfInt[i+1] > convertToSliceOfInt[i] { // i != len(convertToSliceOfInt)-1 needs to be specified so that we don't iterate over the last index as convertToSliceOfInt[i+1] would lead to out of range index
 			count++
