@@ -1,4 +1,4 @@
-package main
+package main // https://adventofcode.com/2021/day/1
 
 import (
 	"bufio"
@@ -60,4 +60,18 @@ func ReadFile() []string {
    for _, v := range strArr { // Ranging over string slice to obtain string value (v)
 	   fmt.Println(v)
    }
+
+-------------------------------
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func main() {
+	i, _ := strconv.Atoi("-42") // Converting string to integer
+	s := strconv.Itoa(-42) // Converting integer to string
+	fmt.Println(i, s)
+}
 */
